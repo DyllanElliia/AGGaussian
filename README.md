@@ -11,8 +11,8 @@ $AG^2aussian$: Anchor-Graph Structured Gaussian Splatting for Instance-Level 3D 
 
 <h3>
   <a href="https://arxiv.org/pdf/2508.01740"><strong>Paper</strong></a> | 
-  <a href="https://arxiv.org/abs/2508.01740"><strong>Arxiv</strong></a> | 
-  <a href="https://github.com/DyllanElliia/AGGaussian"><strong>Project Page</strong></a>
+  <a href="https://arxiv.org/abs/2508.01740"><strong>Arxiv</strong></a>
+  <!-- <a href="https://github.com/DyllanElliia/AGGaussian"><strong>Project Page</strong></a> -->
 </h3>
 
 ---
