@@ -2,7 +2,7 @@
  * @Author: DyllanElliia
  * @Date: 2025-07-29 20:02:19
  * @LastEditors: DyllanElliia
- * @LastEditTime: 2025-11-26 11:05:10
+ * @LastEditTime: 2025-11-26 15:09:53
  * @Description: 
 -->
 
@@ -119,7 +119,7 @@ Firstly, put your images and cameras into the `./datasets`. You need to acquire 
         /images
         /sparse
 ```
-Then, run the following code to extract the mask and semantic features.
+Then, run the following code to extract the mask and clip features.
 ```bash
 python scripts/extract_datas_masks_v5.py --root ./datasets/<your_scene> --images_folder images --masks_folder masks_sparse --extract_level <coarse,default>
 ```
