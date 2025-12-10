@@ -195,13 +195,13 @@ class AnchorMerger_MeanShiftUnionFind:
       radius = None
 
     cluster_feat = torch_scatter.scatter_mean(self.init_feat.float(),
-                          cluster_id,
-                          dim=0,
-                          dim_size=num_clusters)
+                                              cluster_id,
+                                              dim=0,
+                                              dim_size=num_clusters)
     cluster_pos = torch_scatter.scatter_mean(self.init_xyz.float(),
-                         cluster_id,
-                         dim=0,
-                         dim_size=num_clusters)
+                                             cluster_id,
+                                             dim=0,
+                                             dim_size=num_clusters)
 
     reassignment = torch.full((num_clusters,),
                               -1,
@@ -256,15 +256,17 @@ class AnchorMerger_MeanShiftUnionFind:
           if radius is not None:
             valid = valid & (point_dist <= radius)
           if valid.any():
-            reassignment[need_graph[valid]] = big_point_clusters[point_idx[
-                valid]]
+            reassignment[need_graph[valid]] = big_point_clusters[
+                point_idx[valid]]
 
     need_radius = small_ids[reassignment[small_ids] < 0]
     if radius is not None and need_radius.numel() > 0:
       big_ids = torch.nonzero(big_cluster_mask, as_tuple=False).flatten()
       if big_ids.numel() > 0:
-        small_centers = cluster_feat[need_radius]
-        big_centers = cluster_feat[big_ids]
+        # small_centers = cluster_feat[need_radius]
+        # big_centers = cluster_feat[big_ids]
+        small_centers = cluster_pos[need_radius]
+        big_centers = cluster_pos[big_ids]
         if small_centers.numel() > 0 and big_centers.numel() > 0:
           knn = pytorch3d.ops.knn_points(
               small_centers.unsqueeze(0),
